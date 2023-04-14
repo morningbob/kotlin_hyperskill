@@ -1,0 +1,17 @@
+type: code
+files:
+- name: src/Main.kt
+  visible: true
+  text: |-
+    fun main() {
+        // write your code here
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/4602#comment
+status: Failed
+feedback:
+  message: |
+    Failed test #5 of 7. Wrong answer
+  time: "Thu, 13 Apr 2023 18:55:19 UTC"
+record: -1
+submission_language: kotlin

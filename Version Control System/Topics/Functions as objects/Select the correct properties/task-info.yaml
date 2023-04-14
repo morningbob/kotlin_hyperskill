@@ -1,0 +1,28 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: don't depend on its name
+- text: can be stored as a variable
+- text: can be passed to a function as an argument
+files:
+- name: src/Main.kt
+  visible: true
+  text: |
+    // You can experiment here, it won’t be checked
+
+    fun main(args: Array<String>) {
+      // put your code here
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/26043#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Thu, 13 Apr 2023 22:12:52 UTC"
+record: -1
+selected_options:
+- 0
+- 1
+- 2
+custom_name: Select the correct properties.
+local_check: false
