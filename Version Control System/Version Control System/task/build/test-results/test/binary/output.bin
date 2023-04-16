@@ -28,29 +28,30 @@
 [1;31m
 Start test 5[0m
 Add a file to the index.
-#The file 'file634.txt' is tracked.
+#The file 'file637.txt' is tracked.
 Tracked files:
-file634.txt
-"The file 'file89.txt' is tracked.
+file637.txt
+#The file 'file653.txt' is tracked.
 Tracked files:
-file634.txt
-file89.txt
-Can't find 'file184.txt'.
+file637.txt
+file653.txt
+Can't find 'file814.txt'.
 [1;31m
 Start test 6[0m
-The username is Anna572.
+The username is Diane274.
 &The file 'first_file.txt' is tracked.
 'The file 'second_file.txt' is tracked.
 Changes are committed.
 [1;31m
 Start test 7[0m
-The username is Anna874.
+The username is Sofie637.
 &The file 'first_file.txt' is tracked.
 'The file 'second_file.txt' is tracked.
 No commits yet.
 Message was not passed.
 Changes are committed.
-,commit 97057227-d1c4-4406-bac6-77c8e3420a5d
-Author: Anna874
+,commit 95700820-8c6c-4f4c-a4f3-cb970012f462
+Author: Sofie637
 Test message
-Changes are committed.
+Nothing to commit.
+Nothing to commit.

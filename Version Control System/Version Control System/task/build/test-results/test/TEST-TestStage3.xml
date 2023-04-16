@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestStage3" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-04-14T21:32:15" hostname="Jessies-iMac.local" time="0.215">
+<testsuite name="TestStage3" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-04-16T21:00:48" hostname="Jessies-iMac.local" time="0.222">
   <properties/>
-  <testcase name="start" classname="TestStage3" time="0.215">
-    <failure message="java.lang.AssertionError: Wrong answer in test #7&#10;&#10;Your program should output &quot;Nothing to commit.&quot;,&#10;but printed: &quot;Changes are committed.&#10;&quot;&#10;&#10;Please find below the output of your program during this failed test.&#10;&#10;---&#10;&#10;Arguments for MainKt: config Anna874&#10;Arguments for MainKt: add first_file.txt&#10;Arguments for MainKt: add second_file.txt&#10;Arguments for MainKt: log&#10;Arguments for MainKt: commit&#10;Arguments for MainKt: commit &quot;Test message&quot;&#10;Arguments for MainKt: log&#10;Arguments for MainKt: commit &quot;Test message2&quot;&#10;&#10;The username is Anna874.&#10;The file 'first_file.txt' is tracked.&#10;The file 'second_file.txt' is tracked.&#10;No commits yet.&#10;Message was not passed.&#10;Changes are committed.&#10;commit 97057227-d1c4-4406-bac6-77c8e3420a5d&#10;Author: Anna874&#10;Test message&#10;Changes are committed." type="java.lang.AssertionError">java.lang.AssertionError: Wrong answer in test #7
+  <testcase name="start" classname="TestStage3" time="0.222">
+    <failure message="java.lang.AssertionError: Wrong answer in test #7&#10;&#10;Your program should output &quot;Changes are committed.&quot;,&#10;but printed: &quot;Nothing to commit.&#10;&quot;&#10;&#10;Please find below the output of your program during this failed test.&#10;&#10;---&#10;&#10;Arguments for MainKt: config Sofie637&#10;Arguments for MainKt: add first_file.txt&#10;Arguments for MainKt: add second_file.txt&#10;Arguments for MainKt: log&#10;Arguments for MainKt: commit&#10;Arguments for MainKt: commit &quot;Test message&quot;&#10;Arguments for MainKt: log&#10;Arguments for MainKt: commit &quot;Test message2&quot;&#10;Arguments for MainKt: commit &quot;Test message3&quot;&#10;&#10;The username is Sofie637.&#10;The file 'first_file.txt' is tracked.&#10;The file 'second_file.txt' is tracked.&#10;No commits yet.&#10;Message was not passed.&#10;Changes are committed.&#10;commit 95700820-8c6c-4f4c-a4f3-cb970012f462&#10;Author: Sofie637&#10;Test message&#10;Nothing to commit.&#10;Nothing to commit." type="java.lang.AssertionError">java.lang.AssertionError: Wrong answer in test #7
 
-Your program should output &quot;Nothing to commit.&quot;,
-but printed: &quot;Changes are committed.
+Your program should output &quot;Changes are committed.&quot;,
+but printed: &quot;Nothing to commit.
 &quot;
 
 Please find below the output of your program during this failed test.
 
 ---
 
-Arguments for MainKt: config Anna874
+Arguments for MainKt: config Sofie637
 Arguments for MainKt: add first_file.txt
 Arguments for MainKt: add second_file.txt
 Arguments for MainKt: log
@@ -20,17 +20,19 @@ Arguments for MainKt: commit
 Arguments for MainKt: commit &quot;Test message&quot;
 Arguments for MainKt: log
 Arguments for MainKt: commit &quot;Test message2&quot;
+Arguments for MainKt: commit &quot;Test message3&quot;
 
-The username is Anna874.
+The username is Sofie637.
 The file 'first_file.txt' is tracked.
 The file 'second_file.txt' is tracked.
 No commits yet.
 Message was not passed.
 Changes are committed.
-commit 97057227-d1c4-4406-bac6-77c8e3420a5d
-Author: Anna874
+commit 95700820-8c6c-4f4c-a4f3-cb970012f462
+Author: Sofie637
 Test message
-Changes are committed.
+Nothing to commit.
+Nothing to commit.
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.hyperskill.hstest.stage.StageTest.start(StageTest.java:203)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -108,32 +110,33 @@ The username is John.
 ?[1;31m
 Start test 5?[0m
 Add a file to the index.
-The file 'file634.txt' is tracked.
+The file 'file637.txt' is tracked.
 Tracked files:
-file634.txt
-The file 'file89.txt' is tracked.
+file637.txt
+The file 'file653.txt' is tracked.
 Tracked files:
-file634.txt
-file89.txt
-Can't find 'file184.txt'.
+file637.txt
+file653.txt
+Can't find 'file814.txt'.
 ?[1;31m
 Start test 6?[0m
-The username is Anna572.
+The username is Diane274.
 The file 'first_file.txt' is tracked.
 The file 'second_file.txt' is tracked.
 Changes are committed.
 ?[1;31m
 Start test 7?[0m
-The username is Anna874.
+The username is Sofie637.
 The file 'first_file.txt' is tracked.
 The file 'second_file.txt' is tracked.
 No commits yet.
 Message was not passed.
 Changes are committed.
-commit 97057227-d1c4-4406-bac6-77c8e3420a5d
-Author: Anna874
+commit 95700820-8c6c-4f4c-a4f3-cb970012f462
+Author: Sofie637
 Test message
-Changes are committed.
+Nothing to commit.
+Nothing to commit.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
