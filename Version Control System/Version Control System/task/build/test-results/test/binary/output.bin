@@ -28,30 +28,42 @@
 [1;31m
 Start test 5[0m
 Add a file to the index.
-#The file 'file637.txt' is tracked.
+#The file 'file387.txt' is tracked.
 Tracked files:
-file637.txt
-#The file 'file653.txt' is tracked.
+file387.txt
+#The file 'file918.txt' is tracked.
 Tracked files:
-file637.txt
-file653.txt
-Can't find 'file814.txt'.
+file387.txt
+file918.txt
+Can't find 'file86.txt'.
 [1;31m
 Start test 6[0m
-The username is Diane274.
+The username is Anna245.
 &The file 'first_file.txt' is tracked.
 'The file 'second_file.txt' is tracked.
 Changes are committed.
 [1;31m
 Start test 7[0m
-The username is Sofie637.
+The username is Christine263.
 &The file 'first_file.txt' is tracked.
 'The file 'second_file.txt' is tracked.
 No commits yet.
 Message was not passed.
 Changes are committed.
-,commit 95700820-8c6c-4f4c-a4f3-cb970012f462
-Author: Sofie637
+,commit f0763f54-8c4d-4fd8-8d98-3fe46ce1a60d
+Author: Christine263
 Test message
 Nothing to commit.
-Nothing to commit.
+Changes are committed.
+,commit 2717fa6f-f2eb-4c31-92e0-1115c7d89437
+Author: Christine263
+Test message3
+,commit f0763f54-8c4d-4fd8-8d98-3fe46ce1a60d
+Author: Christine263
+Test message
+[1;31m
+Start test 8[0m
+Restore a file.
+[1;31m
+Start test 9[0m
+%'wrongArg929' is not a SVCS command.

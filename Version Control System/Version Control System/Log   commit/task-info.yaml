@@ -416,39 +416,8 @@ files:
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13044#comment
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Wrong answer in test #7
-
-    Your program should output &quot;Changes are committed.&quot;,
-    but printed: &quot;Nothing to commit.
-    &quot;
-
-    Please find below the output of your program during this failed test.
-
-    ---
-
-    Arguments for MainKt: config Sofie637
-    Arguments for MainKt: add first_file.txt
-    Arguments for MainKt: add second_file.txt
-    Arguments for MainKt: log
-    Arguments for MainKt: commit
-    Arguments for MainKt: commit &quot;Test message&quot;
-    Arguments for MainKt: log
-    Arguments for MainKt: commit &quot;Test message2&quot;
-    Arguments for MainKt: commit &quot;Test message3&quot;
-
-    The username is Sofie637.
-    The file &#39;first_file.txt&#39; is tracked.
-    The file &#39;second_file.txt&#39; is tracked.
-    No commits yet.
-    Message was not passed.
-    Changes are committed.
-    commit 95700820-8c6c-4f4c-a4f3-cb970012f462
-    Author: Sofie637
-    Test message
-    Nothing to commit.
-    Nothing to commit.
-  time: "Sun, 16 Apr 2023 21:00:48 UTC"
+  message: Congratulations!
+  time: "Mon, 17 Apr 2023 20:03:46 UTC"
 record: -1

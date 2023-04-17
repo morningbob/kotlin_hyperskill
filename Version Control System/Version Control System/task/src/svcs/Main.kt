@@ -17,6 +17,10 @@ fun main(args: Array<String>) {
     //hash.delete()
     //var index = File("vcs${sep}index.txt")
     //index.delete()
+    //var bb = File("bb.txt")
+    //println("bb hash: ${bb.readLines().hashCode()}")
+    //val aa = File("aa.txt")
+    //println("aa hash: ${aa.readLines().hashCode()}")
     if (args.isEmpty()) {
         printToConsole(fullHelp())
     } else {
@@ -107,7 +111,7 @@ private fun checkCommand(arg1: String?, arg2: String?) : List<String> {
                     if (logs.isEmpty()) {
                         outputList.add("No commits yet.")
                     } else {
-                        outputList.addAll(readLog())
+                        outputList.addAll(prepareLogsToDisplay(logs))
                     }
                 }
 
@@ -264,10 +268,13 @@ private fun retrieveUserName() : String? {
     return username
 }
 
+// when we track the file, record it in index
+// we also calculate it's hash for comparison later
 private fun checkAndTrackFile(filename: String) : Boolean {
     //val separator = File.separator
     //val path = filename
     val targetFile = File(filename)
+    val separator = File.separator
 
     var resultExist = false
     var resultAppend = false
@@ -276,6 +283,21 @@ private fun checkAndTrackFile(filename: String) : Boolean {
         if (targetFile.exists()) {
             resultExist = true
             resultAppend = addIfNewFileInIndex(filename)
+
+            val hashRecordFile = File("vcs${separator}hashRecord_temp.txt")
+            val records = hashRecordFile.readLines()
+            var contains = false
+            for (each in records) {
+                if (each.contains(filename)) {
+                    //hashRecordFile.appendText()
+                    contains = true
+                    break
+                }
+
+            }
+            if (!contains) {
+                hashRecordFile.appendText("$filename ${targetFile.hashCode()}\n")
+            }
         }
     } catch(e: Exception) {
 
@@ -347,6 +369,22 @@ private fun readLog() : List<String> {
     return list
 }
 
+// the logs are recorded from oldest to newest in the file
+// but we need to display logs from newest to oldest
+// we will process it here
+private fun prepareLogsToDisplay(logs: List<String>) : List<String> {
+    val newLogs = mutableListOf<String>()
+    for (i in (logs.size - 1)downTo 0 step 4) {
+        newLogs.add(logs[i - 3])
+        newLogs.add(logs[i - 2])
+        newLogs.add(logs[i - 1])
+        //newLogs.add("\n")
+        //println(logs[i])
+    }
+
+    return newLogs
+}
+
 // create commit directory with commit id as name
 // create files involve in the commit and store it in the directory
 private fun processCommit(message: String) : Boolean {
@@ -356,20 +394,39 @@ private fun processCommit(message: String) : Boolean {
     val newId = UUID.randomUUID().toString()
     val lastCommitId = checkLastCommit()
     var hashRecord : List<String>? = null
+    val newRecordFile = File("vcs${separator}hashRecord_temp.txt")
+    newRecordFile.delete()
+    newRecordFile.createNewFile()
     //lastCommitId?.let {
     try {
         val hashFile = File("vcs${separator}hashRecord.txt")
         if (hashFile.exists()) {
             hashRecord = hashFile.readLines()
             //hashRecord?.let {
-                for (record in hashRecord) {
-                    println("record $record")
-                }
+                //for (record in hashRecord) {
+                //    println("record $record")
+                //}
             //}
         }
     } catch (e: Exception) {
 
     }
+    /*
+    try {
+        val indexFile = File("vcs${separator}index.txt")
+        if (indexFile.exists()) {
+            val trackedFiles = indexFile.readLines()
+            //hashRecord?.let {
+            for (each in trackedFiles) {
+                println("tracked $each")
+            }
+            //}
+        }
+    } catch (e: Exception) {
+
+    }
+
+     */
     //}
     // compare hashes of files
 
@@ -377,11 +434,14 @@ private fun processCommit(message: String) : Boolean {
         // create a unique id
         // get username
         val author = retrieveUserName()
+        //var newHashRecord = mutableListOf<String>()
         for (each in trackedFiles) {
             //println("tracked file: each $each")
             copyFile(filename = each, id = newId)
-            recordHash(filename = each, id = newId, hashRecord = hashRecord)
+            //newHashRecord.add(getHashRecord(filename = each, id = newId, hashRecord = hashRecord)!!)
+            newRecordFile.appendText(getHashRecord(filename = each, id = newId, hashRecord = hashRecord)!!)
         }
+        newRecordFile.copyTo(File("vcs${separator}hashRecord.txt"), overwrite = true)
         // create directory
         //val separator = File.separator
         //val path = "vcs${separator}commits${separator}${newId}"
@@ -450,14 +510,14 @@ private fun compareHashes(id: String, filename: String, hashRecord: List<String>
         //println("new file content: ${File(filename).readText()} hash: ${File(filename).hashCode()}")
         if (lastFileHash != null) {
             // compare hashes
-            if (File(filename).hashCode() == lastFileHash.toInt()) {
+            if (File(filename).readLines().hashCode() == lastFileHash.toInt()) {
 
                 //println("compare hashes: same hashes")
                 return 0
             } else {
                 //println("id $id")
                 //println(filename)
-                //println("new ${File(filename).hashCode()}")
+                //println("new ${File(filename).readLines().hashCode()}")
                 //println("old ${lastFileHash}")
                 //println("compare hashes: different hashes")
                 return 1
@@ -485,12 +545,12 @@ private fun compareHashes(id: String, filename: String, hashRecord: List<String>
     } catch (e: Exception) {
         val separator = File.separator
         val file = File("vcs${separator}commits${separator}${id}")
-        val list = file.listFiles()
+        //val list = file.listFiles()
         //for (each in list) {
         //    println("file in commit: ${each.name}")
         //}
 
-        val iFile = File("vcs${separator}index.txt")
+        //val iFile = File("vcs${separator}index.txt")
         //println("index ${iFile.readText()}")
 
         //println("filename $filename")
@@ -506,9 +566,9 @@ private fun checkLastCommit() : String? {
     val logs = readLog()
     if (logs.isNotEmpty()) {
         //println("logs last 3 ${logs[logs.lastIndex - 3].substring(7)}")
-        for (each in logs) {
+        //for (each in logs) {
             //println("log: $each")
-        }
+        //}
         return logs[logs.lastIndex - 3].substring(7)
     }
     //if (logs.isNotEmpty() && logs.last() != "") {
@@ -518,14 +578,9 @@ private fun checkLastCommit() : String? {
     return null
 }
 
-private fun retrieveFileInCommit(filename: String, id: String) : File {
-    val separator = File.separator
-    val path = "vcs${separator}commits${separator}${id}${separator}${filename}"
-    return File(path)
-}
+
 
 private fun readFileHash(filename: String, hashRecord: List<String>?) : String? {
-    //val allLines = file.readLines()
 
     //var targetLine = ""
     if (hashRecord != null) {
@@ -533,6 +588,7 @@ private fun readFileHash(filename: String, hashRecord: List<String>?) : String? 
             if (each.contains(filename)) {
                 //targetLine = each
                 val list = each.split(" ")
+                //println("$filename ${list.last()}")
                 return list.last()
                 //break
             }
@@ -540,7 +596,6 @@ private fun readFileHash(filename: String, hashRecord: List<String>?) : String? 
     }
     //val targetLine = file.readText()
     return null
-
 }
 // we need to save the commit message at the beginning of the file
 private fun saveCommitToLog(id: String, author: String, message: String) : Boolean {
@@ -579,35 +634,63 @@ private fun copyFile(filename: String, id: String) {
         //file.writeText(hash.toString())
         //opyTrackedFile(filename = filename, id = id)
         file.copyTo(File("vcs${separator}commits${separator}${id}${separator}${filename}"), overwrite = true)
-        val whole = commitDir.listFiles()
+        //val whole = commitDir.listFiles()
         //println("files in commit")
-        for (each in whole) {
+        //for (each in whole) {
             //println(each.name)
-        }
+        //}
         //println("copy file succeeded")
     } catch (e: Exception) {
         //println("copy file $filename failed ${e.localizedMessage}")
     }
 }
 
-private fun recordHash(filename: String, id: String, hashRecord: List<String>?) {
-    val separator = File.separator
+private fun getHashRecord(filename: String, id: String, hashRecord: List<String>?) : String? {
+
+    if (compareHashes(id, filename, hashRecord) == 1) {
+
+        //println("return new hash for $filename ${File(filename).readLines().hashCode()}")
+        //println("filename new ${File(filename).readLines().hashCode()}")
+        return "$filename ${File(filename).readLines().hashCode()}\n"
+    } else {
+        //println("return old hash for $filename ${readFileHash(filename, hashRecord)}")
+        return readFileHash(filename, hashRecord)
+    }
+}
+
+private fun workingDir() : String? {
+    return System.getProperty("user.dir")
+}
+/*
+val separator = File.separator
 
     //val hashRecord = File("vcs${separator}commits${separator}${id}${separator}hashRecord.txt")
     //val newRecord = listOf<String>()
     val newRecordFile = File("vcs${separator}hashRecord_temp.txt")
-    newRecordFile.delete()
+    //var newHashRecord = listOf<String>()
+    //newRecordFile.delete()
+    // for each tracked file inputed
+    // compare hashes
+    // if different,
 
+    // if new file in hash record, use updated code
+    // if new file is not in hash record
+    var foundOldRecord = false
     if (hashRecord != null) {
         //println("hash record is not null")
         for (each in hashRecord) {
             //println("each hash record $each")
             if (each.contains(filename)) {
-                //println("record hash: updated hash for $filename")
+                println("record hash: updated hash for $filename")
                 newRecordFile.appendText("$filename ${File(filename).hashCode()}\n")
+                foundOldRecord = true
             } else {
+                println("record hash: not contain file $filename")
                 newRecordFile.appendText("$each\n")
             }
+        }
+        if (!foundOldRecord) {
+            newRecordFile.appendText("$filename ${File(filename).hashCode()}\n")
         }
     } else {
         //println("record hash: hash record is null")
@@ -615,9 +698,11 @@ private fun recordHash(filename: String, id: String, hashRecord: List<String>?) 
     }
     newRecordFile.copyTo(File("vcs${separator}hashRecord.txt"), overwrite = true)
     //hashRecord.appendText("$filename ${File(filename).hashCode()}\n")
-}
 
-private fun workingDir() : String? {
-    return System.getProperty("user.dir")
+    private fun retrieveFileInCommit(filename: String, id: String) : File {
+    val separator = File.separator
+    val path = "vcs${separator}commits${separator}${id}${separator}${filename}"
+    return File(path)
 }
+ */
 
