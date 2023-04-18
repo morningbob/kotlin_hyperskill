@@ -468,6 +468,49 @@ files:
         }
     }
   learner_created: false
+- name: file783.txt
+  visible: true
+  learner_created: true
+- name: src/svcs/Enums.kt
+  visible: true
+  text: |-
+    package svcs
+
+    enum class Command {
+        CONFIG,
+        ADD,
+        LOG,
+        COMMIT,
+        CHECKOUT,
+        HELP
+    }
+
+    val commandHelp = mapOf<Command, String>(
+        Command.CONFIG to "Get and set a username.",
+        Command.ADD to "Add a file to the index.",
+        Command.LOG to "Show commit logs.",
+        Command.COMMIT to "Save changes.",
+        Command.CHECKOUT to "Restore a file.",
+
+    )
+
+    val commandMap = mapOf<String, Command>(
+        "config" to Command.CONFIG,
+        "add" to Command.ADD,
+        "log" to Command.LOG,
+        "commit" to Command.COMMIT,
+        "checkout" to Command.CHECKOUT,
+        "--help" to Command.HELP
+
+    )
+  learner_created: true
+- name: ./ff.txt
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13045#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">Hyperskill</a>
+    to continue learning.
+  time: "Tue, 18 Apr 2023 16:06:15 UTC"
 record: -1

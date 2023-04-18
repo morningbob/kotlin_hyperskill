@@ -28,42 +28,55 @@
 [1;31m
 Start test 5[0m
 Add a file to the index.
-#The file 'file387.txt' is tracked.
+#The file 'file989.txt' is tracked.
 Tracked files:
-file387.txt
-#The file 'file918.txt' is tracked.
+file989.txt
+#The file 'file729.txt' is tracked.
 Tracked files:
-file387.txt
-file918.txt
-Can't find 'file86.txt'.
+file989.txt
+file729.txt
+Can't find 'file612.txt'.
 [1;31m
 Start test 6[0m
-The username is Anna245.
+The username is Marie956.
 &The file 'first_file.txt' is tracked.
 'The file 'second_file.txt' is tracked.
 Changes are committed.
 [1;31m
 Start test 7[0m
-The username is Christine263.
+The username is Anna533.
 &The file 'first_file.txt' is tracked.
 'The file 'second_file.txt' is tracked.
 No commits yet.
 Message was not passed.
 Changes are committed.
-,commit f0763f54-8c4d-4fd8-8d98-3fe46ce1a60d
-Author: Christine263
+,commit 3a561e1c-5a50-4719-ac2c-eb592734b85a
+Author: Anna533
 Test message
 Nothing to commit.
 Changes are committed.
-,commit 2717fa6f-f2eb-4c31-92e0-1115c7d89437
-Author: Christine263
+,commit 4004a593-a9b3-41b4-8afe-1285d57a0192
+Author: Anna533
 Test message3
-,commit f0763f54-8c4d-4fd8-8d98-3fe46ce1a60d
-Author: Christine263
+,commit 3a561e1c-5a50-4719-ac2c-eb592734b85a
+Author: Anna533
 Test message
 [1;31m
 Start test 8[0m
-Restore a file.
+The username is Christine531.
+&The file 'first_file.txt' is tracked.
+'The file 'second_file.txt' is tracked.
+Changes are committed.
+Changes are committed.
+Commit id was not passed.
+Commit does not exist.
+,commit 9a70d388-c940-432f-b945-3cc378d3e50f
+Author: Christine531
+Second commit
+,commit 73dc5755-c873-46a2-87e4-b936760c34f2
+Author: Christine531
+First commit
+9Switched to commit 73dc5755-c873-46a2-87e4-b936760c34f2.
 [1;31m
 Start test 9[0m
-%'wrongArg929' is not a SVCS command.
+%'wrongArg390' is not a SVCS command.

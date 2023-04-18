@@ -123,7 +123,8 @@ private fun checkCommand(arg1: String?, arg2: String?) : List<String> {
 
                 Command.CHECKOUT -> {
                     //outputList.add("checkout \t\t ${commandHelp[Command.CHECKOUT]!!}")
-                    outputList.add(commandHelp[Command.CHECKOUT]!!)
+                    //outputList.add(commandHelp[Command.CHECKOUT]!!)
+                    outputList.add("Commit id was not passed.")
                 }
 
                 Command.HELP -> {
@@ -207,7 +208,12 @@ private fun checkCommand(arg1: String?, arg2: String?) : List<String> {
                 }
 
                 Command.CHECKOUT -> {
-                    outputList.add("checkout \t ${commandHelp[Command.CHECKOUT]!!}")
+                    //outputList.add("checkout \t ${commandHelp[Command.CHECKOUT]!!}")
+                    if (processCheckout(arg2)) {
+                        outputList.add("Switched to commit $arg2.")
+                    } else {
+                        outputList.add("Commit does not exist.")
+                    }
                 }
 
                 Command.HELP -> {
@@ -411,23 +417,6 @@ private fun processCommit(message: String) : Boolean {
     } catch (e: Exception) {
 
     }
-    /*
-    try {
-        val indexFile = File("vcs${separator}index.txt")
-        if (indexFile.exists()) {
-            val trackedFiles = indexFile.readLines()
-            //hashRecord?.let {
-            for (each in trackedFiles) {
-                println("tracked $each")
-            }
-            //}
-        }
-    } catch (e: Exception) {
-
-    }
-
-     */
-    //}
     // compare hashes of files
 
     if (checkChanges(trackedFiles, lastCommitId, hashRecord)) {
@@ -656,6 +645,62 @@ private fun getHashRecord(filename: String, id: String, hashRecord: List<String>
         //println("return old hash for $filename ${readFileHash(filename, hashRecord)}")
         return readFileHash(filename, hashRecord)
     }
+}
+
+private fun processCheckout(id: String) : Boolean {
+    val separator = File.separator
+
+    val commitDir = getCommitDir(id)
+
+    if (commitDir != null) {
+        val files = commitDir.listFiles()
+        if (files != null && files.isNotEmpty()) {
+            for (file in files) {
+                //println("process checkout: copying ${file.name}")
+                //println("${file.name} content: ${file.readText()}")
+                file.copyTo(File("${file.name}"), overwrite = true)
+
+            }
+        }
+        return true
+    }
+    return false
+}
+
+// loop through the directories directly
+// execute command when found
+private fun getCommitDir(id: String) : File? {
+    val separator = File.separator
+    val commitsDir = File("vcs${separator}commits")
+    var commits = commitsDir.listFiles()
+    if (commits != null) {
+        for (commit in commits) {
+            if (commit.name == id) {
+                return commit
+            }
+        }
+    }
+    return null
+}
+
+
+
+// check all the commit ids from the log file
+private fun checkCommitId(id: String) : Boolean {
+    // get log file
+    // get id
+    val logs = readLog()
+    for (i in logs.indices step 3) {
+        if (id == getCommitId(logs[i])) {
+            return true
+        }
+    }
+    return false
+}
+
+private fun getCommitId(log: String) : String {
+    val splits = log.split(" ")
+    return splits.last()
 }
 
 private fun workingDir() : String? {
