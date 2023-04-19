@@ -1,0 +1,2 @@
+Lot_1 KA-01-HH-1234 White
+Lot_2 KA-01-HH-1234 Red
