@@ -1,17 +1,20 @@
 package parking
 
-import java.io.File
-import java.util.*
+fun main() {
 
-fun main(args: Array<String>) {
+    //val commandList = mutableListOf<String>()
+    var condition = false
+    while (!condition) {
+        val commandList = mutableListOf<String>()
+        commandList.addAll(readln().split(" "))
+        val output = parseCommands(commandList)
+        if (output == "exit") {
+            condition = true
+        } else {
+            println(output)
+        }
 
-    retrieveData()
-
-    val commandList = readln().split(" ")
-
-
-    println(parseCommands(commandList))
-
+    }
 }
 
 private fun parseCommands(commands: List<String>) : String {
@@ -37,6 +40,10 @@ private fun parseCommands(commands: List<String>) : String {
                 }
             }
         }
+        Commands.EXIT -> {
+            //exitProgram()
+            return "exit"
+        }
         else -> 0
     }
     return ""
@@ -46,7 +53,7 @@ private fun parseCommands(commands: List<String>) : String {
 private fun allocateSpot(car: Car) : String {
 
     val output = ParkingLot.park(car)
-    reserveData()
+    ///reserveData()
 
     return output
 }
@@ -55,19 +62,26 @@ private fun allocateSpot(car: Car) : String {
 private fun leaveLot(spot: String) : String {
 
     val output = ParkingLot.leave(spot)
-    reserveData()
+    //reserveData()
     return output
 }
 
+private fun saveData() {
+    //ParkingLot
+}
 
+/*
 private fun retrieveData() {
     //ParkingLot.spotOne = Spot()
     val logsFile = File("lots.txt")
     if (logsFile.exists()) {
         val lines = logsFile.readLines()
+        //for (each in lines) {
+        //    println(each)
+        //}
         //var dataLot1 : List<String>? = null
         var cars = lines.map { line ->
-            if (line != "null") {
+            if (line != "null" && line != "") {
                 val data = line.split(" ")
                 Car(data[1], data[2])
             } else {
@@ -90,17 +104,40 @@ private fun reserveData() {
     var spotTwo = "null"
     val lotsFile = File("lots.txt")
     if (ParkingLot.spotOne.space != null) {
-        spotOne = "${ParkingLot.spotOne.space!!.registrationNum} ${ParkingLot.spotOne.space!!.color}\n"
+        spotOne = "${ParkingLot.spotOne.space!!.registrationNum} ${ParkingLot.spotOne.space!!.color}"
         lotsFile.writeText("Lot_1 $spotOne")
     } else {
-        lotsFile.writeText(spotOne)
+        lotsFile.writeText("${spotOne}")
     }
     if (ParkingLot.spotTwo.space != null) {
-        spotTwo = "${ParkingLot.spotTwo.space!!.registrationNum} ${ParkingLot.spotTwo.space!!.color}\n"
-        lotsFile.appendText("Lot_2 $spotTwo")
+        spotTwo = "${ParkingLot.spotTwo.space!!.registrationNum} ${ParkingLot.spotTwo.space!!.color}"
+        lotsFile.appendText("\nLot_2 $spotTwo")
     } else {
-        lotsFile.appendText(spotTwo)
+        //lotsFile.appendText("\n")
+        lotsFile.appendText("\n${spotTwo}")
     }
 }
+
+private fun checkRegistrationNum(num: String) : Boolean {
+    val parts = num.split("-")
+    if (parts.size != 4) {
+        return false
+    } else {
+        if (!parts[0][0].isLetter() || !parts[0][1].isLetter() ||
+            !parts[1][0].isDigit() || !parts[1][1].isDigit() ||
+                !parts[2][0].isLetter() || !parts[2][1].isLetter()) {
+            return false
+        } else {
+            for (each in parts[3]) {
+                if (!each.isDigit()) {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+}
+
+ */
 
 
