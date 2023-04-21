@@ -2,7 +2,6 @@ package parking
 
 fun main() {
 
-    //val commandList = mutableListOf<String>()
     var condition = false
     while (!condition) {
         val commandList = mutableListOf<String>()
@@ -20,6 +19,9 @@ fun main() {
 private fun parseCommands(commands: List<String>) : String {
 
     when (commandsMap[commands[0]]) {
+        Commands.CREATE -> {
+            return ParkingLot.create(commands[1].toInt())
+        }
         Commands.PARK -> {
             // expecting 2 other args
             if (commands.size >= 3) {
@@ -40,8 +42,10 @@ private fun parseCommands(commands: List<String>) : String {
                 }
             }
         }
+        Commands.STATUS -> {
+            return ParkingLot.status()
+        }
         Commands.EXIT -> {
-            //exitProgram()
             return "exit"
         }
         else -> 0
