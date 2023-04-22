@@ -45,6 +45,16 @@ private fun parseCommands(commands: List<String>) : String {
         Commands.STATUS -> {
             return ParkingLot.status()
         }
+
+        Commands.SPOT_BY_COLOR -> {
+            return getSpotByColor(commands[1])
+        }
+        Commands.REG_BY_COLOR -> {
+            return getRegByColor(commands[1])
+        }
+        Commands.SPOT_BY_REG -> {
+            return getSpotByReg(commands[1])
+        }
         Commands.EXIT -> {
             return "exit"
         }
@@ -70,11 +80,48 @@ private fun leaveLot(spot: String) : String {
     return output
 }
 
-private fun saveData() {
-    //ParkingLot
+private fun getSpotByColor(color: String) : String {
+    val spots = ParkingLot.spotByColor(color) ?: return "Sorry, a parking lot has not been created."
+    val resultList = spots.map { it.name }
+    if (resultList.isEmpty()) {
+        return "No cars with color $color were found."
+    } else {
+        var result = ""
+        for (each in resultList) {
+            result += "$each, "
+        }
+        return result.substring(0, result.length - 2)
+    }
+}
+
+private fun getRegByColor(color: String) : String {
+    val spots = ParkingLot.spotByColor(color) ?: return "Sorry, a parking lot has not been created."
+    val resultList = spots.map { it.space?.registrationNum }
+    if (resultList.isEmpty()) {
+        return "No cars with color $color were found."
+    } else {
+        var result = ""
+        for (each in resultList) {
+            result += "$each, "
+        }
+        return result.substring(0, result.length - 2)
+    }
+}
+
+private fun getSpotByReg(reg: String) : String {
+    val spots = ParkingLot.spotByReg(reg) ?: return "Sorry, a parking lot has not been created."
+    //al resultList = spots.map { it.space?.registrationNum }
+    if (spots.isEmpty()) {
+        return "No cars with registration number $reg were found."
+    } else {
+        return spots[0].name
+    }
 }
 
 /*
+private fun saveData() {
+    //ParkingLot
+}
 private fun retrieveData() {
     //ParkingLot.spotOne = Spot()
     val logsFile = File("lots.txt")

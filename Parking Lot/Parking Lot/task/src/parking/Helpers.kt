@@ -5,6 +5,9 @@ val commandsMap = mapOf<String, Commands>(
     "park" to Commands.PARK,
     "leave" to Commands.LEAVE,
     "status" to Commands.STATUS,
+    "spot_by_color" to Commands.SPOT_BY_COLOR,
+    "reg_by_color" to Commands.REG_BY_COLOR,
+    "spot_by_reg" to Commands.SPOT_BY_REG,
     "exit" to Commands.EXIT
 )
 
@@ -25,6 +28,7 @@ class Car(
 object ParkingLot {
 
     private var parkingSpots = mutableListOf<Spot>()
+    //private var cars = mutableListOf<Car>()
 
     fun create(numSpot: Int) : String {
         // reset the list
@@ -83,6 +87,30 @@ object ParkingLot {
             }
         } else {
             return "Sorry, a parking lot has not been created."
+        }
+    }
+
+    fun spotByColor(color: String) : List<Spot>? {
+        if (parkingSpots.isNotEmpty() ) {
+            return parkingSpots.filter { spot ->
+                //println(spot.space?.registrationNum)
+                spot.space?.color?.lowercase() == color.lowercase()
+            }
+        } else {
+            return null
+        }
+    }
+
+    fun spotByReg(reg: String) : List<Spot>? {
+        if (parkingSpots.isNotEmpty() ) {
+            val spot = parkingSpots.find { spot -> spot.space?.registrationNum == reg }
+            if (spot == null) {
+                return listOf()
+            } else {
+                return listOf(spot)
+            }
+        } else {
+            return null
         }
     }
 }
