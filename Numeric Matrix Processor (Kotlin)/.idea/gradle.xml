@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Numeric Matrix Processor (Kotlin)/task" />
+            <option value="$PROJECT_DIR$/Topics/Debugging techniques/Find the error" />
+            <option value="$PROJECT_DIR$/Topics/Debugging techniques/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Nested and inner classes/Busy internship" />
+            <option value="$PROJECT_DIR$/Topics/Nested and inner classes/Improve your vehicle" />
+            <option value="$PROJECT_DIR$/Topics/Nested and inner classes/Nested or inner" />
+            <option value="$PROJECT_DIR$/Topics/Nested and inner classes/Pumpkin and candle" />
+            <option value="$PROJECT_DIR$/Topics/Nested and inner classes/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Object declarations/Board game basics  Game" />
+            <option value="$PROJECT_DIR$/Topics/Object declarations/Keyword" />
+            <option value="$PROJECT_DIR$/Topics/Object declarations/Me" />
+            <option value="$PROJECT_DIR$/Topics/Object declarations/Properties" />
+            <option value="$PROJECT_DIR$/Topics/Object declarations/Theory" />
+            <option value="$PROJECT_DIR$/util" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
