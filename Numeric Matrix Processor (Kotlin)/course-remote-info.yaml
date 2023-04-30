@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/271195/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: "Mon, 24 Apr 2023 19:18:07 UTC"
+update_date: "Sun, 30 Apr 2023 13:30:59 UTC"
 stages:
 - id: 480
   step: 7786
@@ -173,6 +173,8 @@ topics:
     theory_id: 15127
   - title: Documentation
     theory_id: 12069
+  - title: Introduction to software architecture
+    theory_id: 15368
   - title: IntelliJ IDEA
     theory_id: 3801
   - title: IntelliJ IDEA basics
@@ -183,8 +185,6 @@ topics:
     theory_id: 5829
   - title: Fixing code
     theory_id: 5834
-  - title: Introduction to software architecture
-    theory_id: 15368
   - title: Design principles
     theory_id: 8956
   - title: Single Responsibility Principle

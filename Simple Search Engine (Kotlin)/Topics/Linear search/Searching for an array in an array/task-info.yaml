@@ -1,0 +1,22 @@
+type: dataset
+files:
+- name: src/Main.kt
+  visible: true
+  text: "// write your code here \n\nfun main(args: Array<String>) {\n  // put your\
+    \ code here\n}\n"
+  learner_created: false
+- name: data/sample/input.txt
+  visible: true
+  text: |
+    4 6 5 6 1 5 9 7 3 5
+    0 4 5 7 7 3 4 2 1 1
+  learner_created: false
+- name: data/dataset/input.txt
+  visible: true
+  learner_created: true
+feedback_link: https://hyperskill.org/learn/step/16617#comment
+status: Unchecked
+feedback:
+  message: Failed to get output of executed task
+  time: "Sun, 30 Apr 2023 18:59:04 UTC"
+record: -1

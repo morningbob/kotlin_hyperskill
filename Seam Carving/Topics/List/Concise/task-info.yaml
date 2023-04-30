@@ -1,0 +1,26 @@
+type: choice
+is_multiple_choice: false
+options:
+- text: '&lt;index&gt;'
+- text: "{index}"
+- text: g(index)
+- text: "[index]"
+files:
+- name: src/Main.kt
+  visible: true
+  text: |
+    // You can experiment here, it won’t be checked
+
+    fun main(args: Array<String>) {
+      // put your code here
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/10735#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Sat, 29 Apr 2023 19:23:39 UTC"
+record: -1
+selected_options:
+- 3
+local_check: false

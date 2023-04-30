@@ -5,42 +5,44 @@ fun main() {
     // the first line, with 2 digits, the first digit, the number of line
     //var matrices = mutableListOf<Array<IntArray>>()
 
+    //var quit = false
     while (true) {
         displayMenu()
         val choice = readln().first()
         if (choice == '0') {
+            //quit = true
+            //println()
             break
         } else {
             parseChoice(choice)
         }
     }
-
-    //for (i in 1..2) {
-    //    matrices.add(getMatrixInputs())
-    //}
-    //matrices.add(getMatrixInputs("first"))
-    //matrices.add(getMatrixInputs("second"))
-    //val constant = readln().toInt()
-
-    //println(multiByScalar(matrices[0], constant))
-
-    //println(addition(matrices[0], matrices[1]))
-
-    //for (matrix in matrices) {
-    //    printMatrix(matrix)
-    //}
 }
 
 private fun parseChoice(choice: Char) {
     when (choice) {
         '1' -> {
-            println("The result is:\n ${processAddition()}")
+            val output = processAddition()
+            if (output != "") {
+                println("The result is:\n ${output}")
+            } else {
+                println("The operation cannot be performed.")
+            }
         }
         '2' -> {
-            println("The result is:\n ${processMultiplyByScalar()}")
+            val output = processMultiplyByScalar()
+            if (output != "") {
+                println("The result is:\n $output")
+            } else {
+                println("The operation cannot be performed.")
+            }
         }
-        '3' -> {
-
+        '3' -> {val output = processMultiplyMatrix()
+            if (output != "") {
+                println("The result is:\n $output")
+            } else {
+                println("The operation cannot be performed.")
+            }
         }
         '0' -> {
 
@@ -101,14 +103,16 @@ private fun processMultiplyByScalar() : String {
 
 private fun processMultiplyMatrix() : String {
 
+    val matrixOne = getMatrixInputs("first")
+    val matrixTwo = getMatrixInputs("second")
 
-    return ""
+    return multiplyMatrix(matrixOne, matrixTwo)
 }
 
 private fun addition(matrixOne: Array<DoubleArray>, matrixTwo: Array<DoubleArray>) : String {
     if (matrixOne.size != matrixTwo.size ||
         matrixOne[0].size != matrixTwo[0].size) {
-        return "ERROR"
+        return ""
     }
 
     val matrix : Array<DoubleArray> = Array(matrixOne.size) { DoubleArray(matrixOne[0].size) }
@@ -138,31 +142,28 @@ private fun multiByScalar(matrix: Array<DoubleArray>, scalar: Double) : String {
 private fun multiplyMatrix(matrixOne: Array<DoubleArray>, matrixTwo: Array<DoubleArray>) : String {
 
     if (matrixOne.size != matrixTwo[0].size) {
-        return "ERROR"
+        return ""
     }
 
     val resultMatrix : Array<DoubleArray> = Array(matrixOne.size) { DoubleArray(matrixTwo[0].size) }
 
-    
+    val rowsIndexRange = matrixOne.size - 1
 
+    for (i in 0..resultMatrix.size - 1) {
+        for (j in 0..resultMatrix[0].size - 1) {
+            resultMatrix[i][j] = dotProduct(matrixOne[i], getColumnVector(j, rowsIndexRange, matrixTwo))
+        }
+    }
 
-    //for (i in 0..matrixOne.size - 1) {
-        //resultMatrix[i]
-        // get the vertical vector of matrixTwo
-    //val column : DoubleArray? = null
-
-
-
-    //}
-
-    return ""
+    return printMatrix(resultMatrix)
 }
 
-private fun getColumnVector(columnIndex: Int, matrix: Array<DoubleArray>) : DoubleArray {
-    val column : DoubleArray = DoubleArray(matrix.size - 1)
+private fun getColumnVector(columnIndex: Int, rowsIndexRange: Int, matrix: Array<DoubleArray>) : DoubleArray {
+    val column : DoubleArray = DoubleArray(matrix.size)
 
-    for (i in 0..matrix.size - 1) {
-        column[i] = matrix[columnIndex][i]
+    //println(printMatrix(matrix))
+    for (i in matrix.indices) {
+        column[i] = matrix[i][columnIndex]
     }
 
     return column
