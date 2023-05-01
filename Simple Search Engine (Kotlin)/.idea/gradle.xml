@@ -18,11 +18,24 @@
             <option value="$PROJECT_DIR$/Simple Search Engine (Kotlin)/task/build/reports/tests" />
             <option value="$PROJECT_DIR$/Simple Search Engine (Kotlin)/task/build/test-results" />
             <option value="$PROJECT_DIR$/Simple Search Engine (Kotlin)/task/build/tmp" />
+            <option value="$PROJECT_DIR$/Topics/Enum/Currencies" />
+            <option value="$PROJECT_DIR$/Topics/Enum/Currency comparison" />
+            <option value="$PROJECT_DIR$/Topics/Enum/Danger level" />
+            <option value="$PROJECT_DIR$/Topics/Enum/Properties of Enum" />
+            <option value="$PROJECT_DIR$/Topics/Enum/Theory" />
             <option value="$PROJECT_DIR$/Topics/Linear search/Element is in the array" />
             <option value="$PROJECT_DIR$/Topics/Linear search/How many repetitions" />
             <option value="$PROJECT_DIR$/Topics/Linear search/Searching for an array in an array" />
             <option value="$PROJECT_DIR$/Topics/Linear search/Statements" />
             <option value="$PROJECT_DIR$/Topics/Linear search/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Mutable Map (1)/Correct initialization" />
+            <option value="$PROJECT_DIR$/Topics/Mutable Map (1)/The output of two maps" />
+            <option value="$PROJECT_DIR$/Topics/Mutable Map (1)/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Mutable Map (1)/Wish list" />
+            <option value="$PROJECT_DIR$/Topics/Mutable Map/Correct initialization" />
+            <option value="$PROJECT_DIR$/Topics/Mutable Map/The output of two maps" />
+            <option value="$PROJECT_DIR$/Topics/Mutable Map/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Mutable Map/Wish list" />
             <option value="$PROJECT_DIR$/util" />
           </set>
         </option>

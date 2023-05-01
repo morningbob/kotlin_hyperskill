@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/271583/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: "Sun, 30 Apr 2023 19:05:17 UTC"
+update_date: "Mon, 01 May 2023 20:25:14 UTC"
 stages:
 - id: 494
   step: 7817
@@ -13,16 +13,16 @@ stages:
   is_completed: true
 - id: 496
   step: 7819
-  is_completed: false
+  is_completed: true
 - id: 497
   step: 7820
-  is_completed: false
+  is_completed: true
 - id: 498
   step: 7821
-  is_completed: false
+  is_completed: true
 - id: 499
   step: 7822
-  is_completed: false
+  is_completed: true
 topics:
   0:
   - title: Binary numbers

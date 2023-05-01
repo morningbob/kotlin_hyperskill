@@ -151,9 +151,9 @@ files:
         }
     }
   learner_created: false
+- name: test/SearchEngineTests.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/7818#comment
-status: Solved
-feedback:
-  message: Congratulations!
-  time: "Sun, 30 Apr 2023 20:58:01 UTC"
-record: -1
+status: Failed
+record: 6

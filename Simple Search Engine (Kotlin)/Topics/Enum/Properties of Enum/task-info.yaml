@@ -1,0 +1,27 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: Enum can be extended by adding a custom method
+- text: Enum can store an instance with multiple parameters
+- text: Enum allows to store only uppercase underscore-separated names
+- text: Enum cannot store an instance with NULL value
+files:
+- name: src/Main.kt
+  visible: true
+  text: |
+    // You can experiment here, it won’t be checked
+
+    fun main(args: Array<String>) {
+      // put your code here
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/6246#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Mon, 01 May 2023 17:02:57 UTC"
+record: -1
+selected_options:
+- 0
+- 1
+local_check: false
