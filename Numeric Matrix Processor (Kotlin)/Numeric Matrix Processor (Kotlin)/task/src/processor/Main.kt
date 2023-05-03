@@ -51,7 +51,7 @@ private fun parseChoice(choice: Char) {
 }
 
 private fun printMatrix(matrix: Array<DoubleArray>) : String {
-    var output = ""
+    var output = "\n"
 
     for (row in matrix) {
         for (element in row) {

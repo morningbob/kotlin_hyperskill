@@ -165,6 +165,32 @@ files:
 - name: test/trees.png
   visible: false
   learner_created: false
-feedback_link: https://hyperskill.org/projects/100/stages/552/implement#comment
-status: Unchecked
+- name: test/out3.png
+  visible: true
+  learner_created: true
+- name: test/out2.png
+  visible: true
+  learner_created: true
+- name: test/out1.png
+  visible: true
+  learner_created: true
+- name: src/seamcarving/Enums.kt
+  visible: true
+  text: |-
+    package seamcarving
+
+    enum class Command {
+
+    }
+  learner_created: true
+feedback_link: https://hyperskill.org/learn/step/9017#comment
+status: Failed
+feedback:
+  message: |-
+    Error in test #1
+
+    In this test, the program is running for a long time, more than 15 seconds. Most likely, the program has gone into an infinite loop.
+
+    Arguments: -in test/small.png -out test/small-energy.png
+  time: "Wed, 03 May 2023 19:12:33 UTC"
 record: -1

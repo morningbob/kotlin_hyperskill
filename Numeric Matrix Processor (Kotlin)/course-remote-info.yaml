@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/271195/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: "Sun, 30 Apr 2023 13:30:59 UTC"
+update_date: "Wed, 03 May 2023 11:48:22 UTC"
 stages:
 - id: 480
   step: 7786
@@ -169,10 +169,10 @@ topics:
     theory_id: 14723
   - title: What is a bug
     theory_id: 5504
-  - title: Multi-dimensional list
-    theory_id: 15127
   - title: Documentation
     theory_id: 12069
+  - title: Multi-dimensional list
+    theory_id: 15127
   - title: Introduction to software architecture
     theory_id: 15368
   - title: IntelliJ IDEA

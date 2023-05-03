@@ -176,14 +176,6 @@ files:
 - name: src/seamcarving/Enums.kt
   visible: true
   learner_created: true
-feedback_link: https://hyperskill.org/projects/100/stages/551/implement#comment
-status: Failed
-feedback:
-  message: |-
-    Error in test #1
-
-    In this test, the program is running for a long time, more than 15 seconds. Most likely, the program has gone into an infinite loop.
-
-    Arguments: -in test/small.png -out test/small-negative.png
-  time: "Sun, 30 Apr 2023 17:28:47 UTC"
-record: -1
+feedback_link: https://hyperskill.org/learn/step/9016#comment
+status: Solved
+record: 2
